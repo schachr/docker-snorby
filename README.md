@@ -1,7 +1,6 @@
 ### Snorby Docker Image
 
-[![Join the chat at https://gitter.im/pozgo/docker-snorby](https://badges.gitter.im/pozgo/docker-snorby.svg)](https://gitter.im/pozgo/docker-snorby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[Docker Image](https://registry.hub.docker.com/u/polinux/snorby/) with Snorby using CentOS-7, Ruby on Rails, Daq and Snort.
+[Docker Image](https://hub.docker.com/r/schachr/snorby/) with Snorby using latest CentOS-7, Ruby on Rails, Daq and Snort.
 Using ENV variable called `OINKCODE` this docker image can download rules provided for **registered** and **subscribed** users from [snort.org](https://www.snort.org).  
 
 Snorby is build on:  
@@ -90,9 +89,5 @@ Simple `--help` output below:
 Visit your `snorby_ip:port` to access snorby interface and use default credentials:  
 Username: **snorby@snorby.org**  
 Password: **snorby**  
-
-## Author
-  
-Author: Przemyslaw Ozgo (<linux@ozgo.info>)
 
 ---
