@@ -11,20 +11,13 @@ Snorby is build on:
 
 This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/snorby -e production` you pass `-e production` to rails server daemon.
 
+### Automatic Build details
+This image has a repository link to the underlying base image `centos`. Whenever this receives an update this container will automatically build itself again.
+There is an `automatic build` dependency to the github repository https://github.com/schachr/docker-snorby as well.
+All you need to do is to pull it, remove the container (`docker rm`) if neccessary and restart it (`docker create/run`).
+
 ### Database deployment 
-To be able to connect to database we would need one to be running first. Easiest way to do that is to use another docker image. For this purpose we will use our [million12/mariadb](https://registry.hub.docker.com/u/million12/mariadb/) image as our database.
-
-**For more information about million12/MariaDB see our [documentation.](https://github.com/million12/docker-mariadb) **
-
-Example:  
-
-    docker run \
-    -d \
-    --name snorby-db \
-    -p 3306:3306 \
-    --env="MARIADB_USER=snorbyuser" \
-    --env="MARIADB_PASS=my_password" \
-    million12/mariadb
+To be able to connect to database we would need one to be running first. 
 
 ### Environmental Variable
 In this Image you can use environmental variables to connect into external MySQL/MariDB database.  
