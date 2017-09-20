@@ -9,7 +9,7 @@ Snorby is build on:
     daq-2.0.6-1
     snort-2.9.9.0-1 using community rules.  
 
-This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] polinux/snorby -e production` you pass `-e production` to rails server daemon.
+This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/snorby -e production` you pass `-e production` to rails server daemon.
 
 ### Database deployment 
 To be able to connect to database we would need one to be running first. Easiest way to do that is to use another docker image. For this purpose we will use our [million12/mariadb](https://registry.hub.docker.com/u/million12/mariadb/) image as our database.
@@ -47,7 +47,7 @@ If you mount your config to different location, simply edit it.
     --env="DB_ADDRESS=database_ip" \
     --env="DB_USER=snorbyuser" \
     --env="DB_PASS=password" \
-    polinux/snorby
+    schachr/snorby
 
 
 ### Mount custom config , override some options
@@ -62,7 +62,7 @@ If you mount your config to different location, simply edit it.
     --env="OINKCODE=my_oinkcode" \
     -v /my-snorby-config.yml:/usr/local/src/snorby/config/snorby_config.yml \
     -v /my-email-settings.rb:/usr/local/src/snorby/config/initializers/mail_config.rb \
-    polinux/snorby \
+    schachr/snorby \
     -e development -p 80
 
 ### Rails Server CMD params
