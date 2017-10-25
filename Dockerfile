@@ -17,7 +17,7 @@ RUN \
     gem install bundler && \
     # Install DAQ and Snort
     yum install -y https://snort.org/downloads/snort/daq-2.0.6-1.centos7.x86_64.rpm && \
-    yum install -y https://snort.org/downloads/snort/snort-2.9.9.0-1.centos7.x86_64.rpm && \
+    yum install -y https://snort.org/downloads/snort/snort-2.9.11-1.centos7.x86_64.rpm && \
     # Install Community rules
     wget -O /tmp/community-rules.tar.gz https://www.snort.org/downloads/community/community-rules.tar.gz && \
     mkdir -p /etc/snort/rules && \
