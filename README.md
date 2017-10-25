@@ -7,7 +7,7 @@ Snorby is build on:
     
     ruby-1.9.3-p551
     daq-2.0.6-1
-    snort-2.9.9.0-1 using community rules.  
+    snort-2.9.11-1 using community rules.  
 
 This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/snorby -e production` you pass `-e production` to rails server daemon.
 
