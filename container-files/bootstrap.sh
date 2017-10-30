@@ -19,7 +19,7 @@ fi
 
 # Download latest rules when provided with valid Oinkcode from snort.org
 if [ $OINKCODE != "community" ]; then
-    wget -O /tmp/rules.tar.gz https://www.snort.org/rules/snortrules-snapshot-2970.tar.gz?oinkcode=$OINKCODE
+    wget -O /tmp/rules.tar.gz https://www.snort.org/rules/snortrules-snapshot-29110.tar.gz?oinkcode=$OINKCODE
     rm -rf /etc/snort/rules
     mkdir -p /etc/snort/rules
     tar zxvf /tmp/rules.tar.gz -C /etc/snort/rules --strip-components=1
