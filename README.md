@@ -1,5 +1,7 @@
 ### Snorby Docker Image
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/schachr/snorby.svg)](https://hub.docker.com/r/schachr/snorby/) [![Docker Layers](https://images.microbadger.com/badges/image/schachr/snorby.svg)](https://microbadger.com/images/schachr/snorby)
+
 [Docker Image](https://hub.docker.com/r/schachr/snorby/) with Snorby using latest CentOS-7, Ruby on Rails, Daq and Snort.
 Using ENV variable called `OINKCODE` this docker image can download rules provided for **registered** and **subscribed** users from [snort.org](https://www.snort.org).  
 
