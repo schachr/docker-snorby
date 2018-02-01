@@ -2,6 +2,7 @@ FROM centos:centos7
 MAINTAINER schachr <schachr@github.com>
 
 RUN \
+    # Install needed packages
     yum update -y && \
     yum install -y epel-release && \
     yum install -y tar wget git libxml2-devel libxslt-devel mariadb mariadb-devel postgresql-devel wkhtmltopdf && \
