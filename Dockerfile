@@ -39,4 +39,6 @@ COPY container-files /
 
 ENV DB_ADDRESS=127.0.0.1 DB_USER=user DB_PASS=password SNORBY_CONFIG=/usr/local/src/snorby/config/snorby_config.yml OINKCODE=community
 
+EXPOSE 3000
+
 ENTRYPOINT ["/bootstrap.sh"]
