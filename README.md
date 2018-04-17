@@ -15,7 +15,7 @@ This container is built that any extra parameters provided to `docker run` will 
 
 ### Automatic Build details
 This image has a repository link to the underlying base image `centos`. Whenever this receives an update this container will automatically build itself again.
-There is an `automatic build` dependency to the github repository https://github.com/schachr/docker-snorby as well.
+There is an `automatic build` dependency to the github repository https://github.com/schachr/docker-snorby and crontab scheduled builds as well.
 All you need to do is to pull it, remove the container (`docker rm`) if neccessary and restart it (`docker create/run`).
 
 ### Database deployment 
