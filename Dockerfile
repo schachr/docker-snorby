@@ -1,8 +1,6 @@
 FROM centos:centos7
 LABEL maintainer=schachr@github.com
 
-RUN set
-
 RUN \
     # Install needed packages
     yum update -y && \
