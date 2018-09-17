@@ -4,16 +4,17 @@ export PATH=$PATH:/usr/local/rvm/rubies/ruby-1.9.3-p551/bin
 
 # Prepare Database if it doesn't exist
 export MYSQL_PWD=$DB_PASS
-STATUS=`mysqlshow -u $DB_USER -h $DB_ADDRESS snorby`
-if [[ $STATUS != "snorby" ]]; then
-    mysql -u $DB_USER -h $DB_ADDRESS -e "CREATE DATABASE snorby"
-    mysql -u $DB_USER -h $DB_ADDRESS -e "GRANT ALL ON snorby.* TO $DB_USER@'%' IDENTIFIED BY '$DB_PASS'"
+STATUS=`mysqlshow -u $DB_USER -h $DB_ADDRESS $DB_DATABASE`
+if [[ $STATUS != "$DB_DATABASE" ]]; then
+    mysql -u $DB_USER -h $DB_ADDRESS -e "CREATE DATABASE $DB_DATABASE"
+    mysql -u $DB_USER -h $DB_ADDRESS -e "GRANT ALL ON $DB_DATABASE.* TO $DB_USER@'%' IDENTIFIED BY '$DB_PASS'"
     mysql -u $DB_USER -h $DB_ADDRESS -e "flush privileges"
     cd /usr/local/src/snorby
     bundle install
     sed -i 's/$DB_ADDRESS/'$DB_ADDRESS'/g' /usr/local/src/snorby/config/database.yml
     sed -i 's/$DB_USER/'$DB_USER'/g' /usr/local/src/snorby/config/database.yml
     sed -i 's/$DB_PASS/'$DB_PASS'/g' /usr/local/src/snorby/config/database.yml
+    sed -i 's/$DB_DATABASE/'$DB_DATABASE'/g' /usr/local/src/snorby/config/database.yml
     bundle exec rake snorby:setup
 fi
 

@@ -1,5 +1,7 @@
 FROM centos:centos7
-MAINTAINER schachr <schachr@github.com>
+LABEL maintainer=schachr@github.com
+
+RUN set
 
 RUN \
     # Install needed packages
@@ -38,6 +40,6 @@ RUN \
 
 COPY container-files /
 
-ENV DB_ADDRESS=127.0.0.1 DB_USER=user DB_PASS=password SNORBY_CONFIG=/usr/local/src/snorby/config/snorby_config.yml OINKCODE=community
+ENV DB_ADDRESS=127.0.0.1 DB_USER=user DB_PASS=password DB_DATABASE=snorby SNORBY_CONFIG=/usr/local/src/snorby/config/snorby_config.yml OINKCODE=community
 
 ENTRYPOINT ["/bootstrap.sh"]

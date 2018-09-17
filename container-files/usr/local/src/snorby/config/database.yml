@@ -10,13 +10,13 @@ snorby: &snorby
   host: $DB_ADDRESS
 
 development:
-  database: snorby
+  database: $DB_DATABASE
   <<: *snorby
 
 test:
-  database: snorby
+  database: $DB_DATABASE
   <<: *snorby
 
 production:
-  database: snorby
+  database: $DB_DATABASE
   <<: *snorby
