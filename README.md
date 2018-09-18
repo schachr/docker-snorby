@@ -33,6 +33,10 @@ Snorby Config:
 `SNORBY_CONFIG=/usr/local/src/snorby/config/snorby_config.yml`
 If you mount your config to different location, simply edit it.
 
+Timezone:
+`TIMEZONE=Atlantic/Faeroe`
+Defaults to UTC.
+
 ## Usage
 ### Basic
 
@@ -58,6 +62,7 @@ If you mount your config to different location, simply edit it.
     --env="DB_PASS=password" \
     --env="DB_DATABASE=database" \
     --env="OINKCODE=my_oinkcode" \
+    --env="TIMEZONE=Atlantic/Faeroe" \
     -v /my-snorby-config.yml:/usr/local/src/snorby/config/snorby_config.yml \
     -v /my-email-settings.rb:/usr/local/src/snorby/config/initializers/mail_config.rb \
     schachr/snorby \

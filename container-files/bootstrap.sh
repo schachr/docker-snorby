@@ -2,6 +2,9 @@
 
 export PATH=$PATH:/usr/local/rvm/rubies/ruby-1.9.3-p551/bin
 
+# Apply timezone settings
+ln -f -s /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+
 # Prepare Database if it doesn't exist
 export MYSQL_PWD=$DB_PASS
 STATUS=`mysqlshow -u $DB_USER -h $DB_ADDRESS $DB_DATABASE`
