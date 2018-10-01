@@ -26,4 +26,4 @@
 ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
 
-# Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+# Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?o

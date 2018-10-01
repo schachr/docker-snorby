@@ -5,7 +5,7 @@
 [Docker Image](https://hub.docker.com/r/schachr/snorby/) with Snorby using latest CentOS-7, Ruby on Rails, Daq and Snort.
 Using ENV variable called `OINKCODE` this docker image can download rules provided for **registered** and **subscribed** users from [snort.org](https://www.snort.org).  
 
-Snorby is build on:  
+Snorby is build on:
     
     ruby-1.9.3-p551
     daq-2.0.6-1
@@ -22,15 +22,20 @@ All you need to do is to pull it, remove the container (`docker rm`) if neccessa
 To be able to connect to database we would need one to be running first. 
 
 ### Environmental Variable
-In this Image you can use environmental variables to connect into external MySQL/MariDB database.  
+In this Image you can use environmental variables to connect into external MySQL/MariaDB database.
 
-`DB_USER` = database user  
-`DB_PASS` = database password  
-`DB_ADDRESS` = database address (either ip or domain-name).
+`DB_USER` = database user
+`DB_PASS` = database password
+`DB_ADDRESS` = database address (either ip or domain-name)
+`DB_DATABASE`= database itself.
 
-Snorby Config:  
-`SNORBY_CONFIG=/usr/local/src/snorby/config/snorby_config.yml`  
+Snorby Config:
+`SNORBY_CONFIG=/usr/local/src/snorby/config/snorby_config.yml`
 If you mount your config to different location, simply edit it.
+
+Timezone:
+`TIMEZONE=Atlantic/Faeroe`
+Defaults to UTC.
 
 ## Usage
 ### Basic
@@ -42,6 +47,7 @@ If you mount your config to different location, simply edit it.
     --env="DB_ADDRESS=database_ip" \
     --env="DB_USER=snorbyuser" \
     --env="DB_PASS=password" \
+    --env="DB_DATABASE=database" \
     schachr/snorby
 
 
@@ -54,14 +60,16 @@ If you mount your config to different location, simply edit it.
     --env="DB_ADDRESS=database_ip" \
     --env="DB_USER=snorbyuser" \
     --env="DB_PASS=password" \
+    --env="DB_DATABASE=database" \
     --env="OINKCODE=my_oinkcode" \
+    --env="TIMEZONE=Atlantic/Faeroe" \
     -v /my-snorby-config.yml:/usr/local/src/snorby/config/snorby_config.yml \
     -v /my-email-settings.rb:/usr/local/src/snorby/config/initializers/mail_config.rb \
     schachr/snorby \
     -e development -p 80
 
 ### Rails Server CMD params
-`rails server` command can be used with some parameters to define address and port on which rails server should work.  
+`rails server` command can be used with some parameters to define address and port on which rails server should work.
 Simple `--help` output below:
 
 	Usage: rails server [mongrel, thin, etc] [options]
@@ -81,8 +89,8 @@ Simple `--help` output below:
 
 
 ### Access Snorby web interface
-Visit your `snorby_ip:port` to access snorby interface and use default credentials:  
-Username: **snorby@snorby.org**  
-Password: **snorby**  
+Visit your `snorby_ip:port` to access snorby interface and use default credentials:
+Username: **snorby@snorby.org**
+Password: **snorby**
 
 ---

@@ -5,18 +5,18 @@
 #
 snorby: &snorby
   adapter: mysql
-  username: $DB_USER
-  password: "$DB_PASS"
-  host: $DB_ADDRESS
+  username: snorby
+  password: "hjsdfklisekue45ser"
+  host: maria.ifw-dresden.de
 
 development:
-  database: snorby
+  database: snort
   <<: *snorby
 
 test:
-  database: snorby
+  database: snort
   <<: *snorby
 
 production:
-  database: snorby
+  database: snort
   <<: *snorby
