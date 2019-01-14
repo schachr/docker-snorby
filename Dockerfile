@@ -10,8 +10,10 @@ RUN \
     yum install -y tar wget git libxml2-devel libxslt-devel mariadb mariadb-devel postgresql-devel wkhtmltopdf && \
     yum clean all && \
     # Prepare ruby for Snorby
-    curl -#LO https://rvm.io/mpapis.asc && \
-    gpg --import mpapis.asc && \
+    #curl -#LO https://rvm.io/mpapis.asc && \
+    #gpg --import mpapis.asc && \
+    curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - && \
+    curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import - && \
     curl --silent -L "https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer" | bash -s stable --ruby=1.9.3 && \
     source /usr/local/rvm/scripts/rvm && \
     source /etc/profile.d/rvm.sh && \
