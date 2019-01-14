@@ -10,8 +10,6 @@ RUN \
     yum install -y tar wget git libxml2-devel libxslt-devel mariadb mariadb-devel postgresql-devel wkhtmltopdf && \
     yum clean all && \
     # Prepare ruby for Snorby
-    #curl -#LO https://rvm.io/mpapis.asc && \
-    #gpg --import mpapis.asc && \
     curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - && \
     curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import - && \
     curl --silent -L "https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer" | bash -s stable --ruby=1.9.3 && \
@@ -34,7 +32,7 @@ RUN \
     git clone git://github.com/Snorby/snorby.git /usr/local/src/snorby && \
     sed -i "s/gem 'byebug'/gem 'pry-byebug', platform: [:ruby_20]/g" /usr/local/src/snorby/Gemfile && \
     cd /usr/local/src/snorby && \
-    gem install --user-install executable-hooks ; bundle install ; bundle update do_mysql ; bundle update dm-mysql-adapter
+    gem install --user-install executable-hooks bundler ; bundle install ; bundle update do_mysql ; bundle update dm-mysql-adapter
 
     # Try to fix wkhtmltopdf
 RUN \
