@@ -12,14 +12,16 @@ RUN \
     # Prepare ruby for Snorby
     curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - && \
     curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import - && \
-    curl --silent -L "https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer" | bash -s stable --ruby=1.9.3 && \
+    curl -sSL https://get.rvm.io | bash -s -- --version 1.29.7 && \
+    source /root/.bashrc && \
+    rvm reload && \
+    rvm install 1.9.3 && \
     source /usr/local/rvm/scripts/rvm && \
     source /etc/profile.d/rvm.sh && \
     export PATH=$PATH:/usr/local/rvm/rubies/ruby-1.9.3-p551/bin && \
-    gem update --system && \
     # Install DAQ and Snort
-    yum install -y https://snort.org/downloads/snort/daq-2.0.6-1.centos7.x86_64.rpm && \
-    yum install -y https://snort.org/downloads/snort/snort-2.9.12-1.centos7.x86_64.rpm && \
+    yum install -y daq && \
+    yum install -y https://snort.org/downloads/snort/snort-2.9.14.1-1.centos7.x86_64.rpm && \
     # Install Community rules
     wget -O /tmp/community-rules.tar.gz https://www.snort.org/downloads/community/community-rules.tar.gz && \
     mkdir -p /etc/snort/rules && \
