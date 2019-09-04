@@ -13,11 +13,11 @@ RUN \
     curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - && \
     curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import - && \
     curl -sSL https://get.rvm.io | bash -s -- --version 1.29.7 && \
-    source /root/.bashrc && \
+    source /etc/profile.d/rvm.sh && \
+    export PATH=$PATH:/usr/local/rvm/bin/ && \
     rvm reload && \
     rvm install 1.9.3 && \
     source /usr/local/rvm/scripts/rvm && \
-    source /etc/profile.d/rvm.sh && \
     export PATH=$PATH:/usr/local/rvm/rubies/ruby-1.9.3-p551/bin && \
     # Install DAQ and Snort
     yum install -y daq && \
@@ -34,7 +34,7 @@ RUN \
     git clone git://github.com/Snorby/snorby.git /usr/local/src/snorby && \
     sed -i "s/gem 'byebug'/gem 'pry-byebug', platform: [:ruby_20]/g" /usr/local/src/snorby/Gemfile && \
     cd /usr/local/src/snorby && \
-    gem install --user-install executable-hooks bundler ; bundle install ; bundle update do_mysql ; bundle update dm-mysql-adapter
+    ( gem install --user-install executable-hooks bundler ; bundle install ; bundle update do_mysql ; bundle update dm-mysql-adapter )
 
     # Try to fix wkhtmltopdf
 RUN \
