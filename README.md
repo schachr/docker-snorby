@@ -8,8 +8,7 @@ Using ENV variable called `OINKCODE` this docker image can download rules provid
 Snorby is build on:
     
     ruby-1.9.3-p551
-    daq-2.0.6-1
-    snort-2.9.12-1 using community rules
+    recent version of snort using community rules
 
 This container is built that any extra parameters provided to `docker run` will be passed directly to rails server command. For example, if you run `docker run [run options] schachr/snorby -e production` you pass `-e production` to rails server daemon.
 
