@@ -9,7 +9,7 @@ echo "  password: \"$DB_PASS\"" >> /usr/local/src/snorby/config/database.yml
 echo "  host: $DB_ADDRESS" >> /usr/local/src/snorby/config/database.yml
 echo "" >> /usr/local/src/snorby/config/database.yml
 echo "production:" >> /usr/local/src/snorby/config/database.yml
-echo "  database: snorby" >> /usr/local/src/snorby/config/database.yml
+echo "  database: $DB_DATABASE" >> /usr/local/src/snorby/config/database.yml
 echo '  <<: *snorby' >> /usr/local/src/snorby/config/database.yml
 echo "" >> /usr/local/src/snorby/config/database.yml
 
