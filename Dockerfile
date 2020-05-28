@@ -21,7 +21,7 @@ RUN \
     export PATH=$PATH:/usr/local/rvm/rubies/ruby-1.9.3-p551/bin && \
     # Install DAQ and Snort
     yum install -y daq && \
-    yum install -y https://snort.org/downloads/snort/snort-2.9.14.1-1.centos7.x86_64.rpm && \
+    yum install -y https://snort.org/downloads/snort/snort-2.9.15.1-1.centos7.x86_64.rpm && \
     # Install Community rules
     wget -O /tmp/community-rules.tar.gz https://www.snort.org/downloads/community/community-rules.tar.gz && \
     mkdir -p /etc/snort/rules && \
